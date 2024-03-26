@@ -1,3 +1,4 @@
+/* Color: https://tailwindcss.com/docs/customizing-colors */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -7,11 +8,22 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: '375px',
+      md: '768px',
+      lg: '1264px',
+    },
+    // colors: {},
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        gray: {
+          primary: '#334155',
+          secondary: '#64748b',
+        },
+        red: {
+          primary: '#dc2626',
+          secondary: '#ef4444',
+        },
       },
     },
   },
