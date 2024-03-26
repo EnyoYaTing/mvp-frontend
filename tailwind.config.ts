@@ -16,13 +16,15 @@ const config: Config = {
     // colors: {},
     extend: {
       colors: {
-        gray: {
-          primary: '#334155',
-          secondary: '#64748b',
+        primary: {
+          900: '#334155',
+          800: '#475569',
+          700: '#64748b',
+          600: '#94a3b8',
         },
-        red: {
-          primary: '#dc2626',
-          secondary: '#ef4444',
+        error: {
+          900: '#dc2626',
+          800: '#ef4444',
         },
       },
     },
