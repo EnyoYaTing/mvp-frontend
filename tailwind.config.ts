@@ -14,6 +14,14 @@ const config: Config = {
       lg: '1264px',
     },
     // colors: {},
+    borderWidth: {
+      '0': '0',
+      '1': '1px',
+      '2': '2px',
+      '3': '3px',
+      '4': '4px',
+      '6': '6px'
+    },
     extend: {
       colors: {
         primary: {
@@ -22,10 +30,19 @@ const config: Config = {
           700: '#64748b',
           600: '#94a3b8',
         },
-        error: {
+        secondary: {
+          900: '',
+          800: '',
+          700: '',
+        },
+        red: {
           900: '#dc2626',
           800: '#ef4444',
         },
+        // error: {}
+      },
+      width: {
+        '128': '32rem',
       },
     },
   },
