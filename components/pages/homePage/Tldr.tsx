@@ -1,6 +1,9 @@
+'use client'
+import useLayout from '@/hooks/useLayout';
+
 const mockData = [
   {
-    news: 'this is first news',
+    news: 'this is first news, Highlights: Interviews Writings Available, Newsletter Available.',
     impact: ['usd', 'gold', 'hello'],
     score: 90
   },
@@ -32,43 +35,42 @@ type TldrDataType = {
   score: number,
 };
 
-const TLDR = () => {
 
-  const renderTable = (item: TldrDataType, index: number) => {
-    const renderImpact = (impact: string) => {
-      return (
-        <div className="w-1/5 pr-2"> {impact} </div>
-      );   
-    }
-    return (
-      <div className="flex flex-1">
-        <div className="w-3/5 flex"> 
-          <div className="pr-2"> {index+1} </div>
-          <p> {item.news} </p>
-        </div>
-        {item.impact?.map(impact => renderImpact(impact))}
-        <div className="w-1/5 ml-2"> {item.score}</div>
-      </div>
-    );
-  };
+const TLDR = () => {
+  // const { isTablet, isDesktop } = useLayout();
 
   return (
     <div>
-      <div className="table-header flex justify-start" >
-        <div className="w-3/5 text-4xl lg:text-5xl text-primary-900 font-black">  TL:DR </div>
-        <div className="w-1/5 text-primary-800"> Impact </div>
-        <div className="w-1/5 text-primary-800 ml-2"> Score </div>
+      <div className='flex items-center border-b-2'>
+        <h2 className='grow text-4xl text-primary-900 font-black'> TL:DR </h2>
+        <div className='w-14 text-xs text-primary-80'> Impact </div>
+        <div className='w-10 text-xs text-center text-primary-800'> Score </div>
       </div>
-      <div className="border-2"></div>
-      <div className="tablebody flex flex-col justify-start text-xs text-primary-700 py-4">
-        {mockData.map((item, index) => renderTable(item, index))}
+    
+      <div className='mt-2 flex flex-col'>
+        {mockData?.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className='min-h-14 flex items-center'> 
+                <div className='grow flex items-center'>  
+                  <div className='w-6 text-xs text-primary-600'> { index + 1} </div>
+                  <div className='max-w-40 md:max-w-96 lg:max-w-[38rem] py-1 text-xs text-primary-700 font-black'> {item?.news} </div>
+                </div>
 
-        {/* <div className="w-3/5 flex "> 
-          <div className="pr-2"> 1 </div>
-          <p>text</p>
-        </div>
-        <div className="w-1/5 pr-2"> usd gold </div>
-        <div className="w-1/5 ml-2"> 80 </div> */}
+                <div>
+                  {item?.impact?.map((impact, index) => {
+                    return (
+                      <div key={index} className='w-14 max-w-14 text-xs text-primary-700'> {impact} </div>
+                    );
+                  })}
+                </div>
+
+                <div className='w-10 max-w-10 text-xs text-center text-primary-700'> {item?.score} </div>
+              </div>
+              <div className='border-1 border-solid'></div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
