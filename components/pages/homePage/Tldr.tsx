@@ -9,6 +9,21 @@ const mockData = [
     impact: ['tw', 'gold', 'world'],
     score: 80
   },
+  {
+    news: 'this is third news',
+    impact: ['yen', 'gold', 'hello'],
+    score: 90
+  },
+  {
+    news: 'this is fourth news',
+    impact: ['ustd', 'gold', 'world'],
+    score: 80
+  },
+  {
+    news: 'this is fifthnews',
+    impact: ['hkd', 'gold', 'world'],
+    score: 80
+  },
 ]
 
 type TldrDataType = {
@@ -27,7 +42,7 @@ const TLDR = () => {
     }
     return (
       <div className="flex flex-1">
-        <div className="w-3/5 flex "> 
+        <div className="w-3/5 flex"> 
           <div className="pr-2"> {index+1} </div>
           <p> {item.news} </p>
         </div>
@@ -40,7 +55,7 @@ const TLDR = () => {
   return (
     <div>
       <div className="table-header flex justify-start" >
-        <div className="w-3/5 text-4xl lg:text-5xl text-primary-900 font-black">  TLDR </div>
+        <div className="w-3/5 text-4xl lg:text-5xl text-primary-900 font-black">  TL:DR </div>
         <div className="w-1/5 text-primary-800"> Impact </div>
         <div className="w-1/5 text-primary-800 ml-2"> Score </div>
       </div>
